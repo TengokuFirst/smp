@@ -62,7 +62,10 @@
         <aside class="server-stack glass-panel">
           <div class="server-stack__header">
             <p class="server-stack__label">Что внутри</p>
-            <h2 class="server-stack__title minecraft-font">Сервер</h2>
+            <div class="server-stack__status-line" data-server-status-line data-server-state="loading">
+              <img class="server-stack__status-gif" src="./assets/offline.gif" alt="" width="24" height="24" data-server-status-gif>
+              <h2 class="server-stack__title minecraft-font" data-server-status-title>Сервер</h2>
+            </div>
           </div>
 
           <section class="server-info server-info--addresses">
@@ -86,11 +89,10 @@
             </button>
             <div class="server-info__body">
               <div class="online-list">
-                <span class="online-list__status">Пока список можно обновлять вручную</span>
-                <div class="online-list__chips">
-                  <span class="player-chip">Tengoku</span>
-                  <span class="player-chip">Место под ники</span>
-                  <span class="player-chip">Позже подключим реальный онлайн</span>
+                <span class="online-list__status" id="online-status-text">Проверяем статус сервера...</span>
+                <div class="online-list__summary" id="online-summary-text">-- / 50</div>
+                <div class="online-list__chips" id="online-players-list">
+                  <span class="player-chip player-chip--muted">Загрузка...</span>
                 </div>
               </div>
             </div>
