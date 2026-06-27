@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TengokuFirst SMP</title>
-  <meta name="description" content="Официальный сайт TengokuFirst SMP: лаунчер, modpack, гайд по Ely.by, FAQ и обратная связь.">
+  <meta name="description" content="Официальный сайт TengokuFirst SMP: лаунчер, modpack, гайд по Ely.by, правила и обратная связь.">
+  <link rel="icon" type="image/png" href="./assets/server-icon.png">
+  <link rel="shortcut icon" href="./assets/server-icon.png">
+  <link rel="apple-touch-icon" href="./assets/server-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,6 +15,8 @@
 </head>
 <body>
   <div class="page-shell">
+    <div class="page-parallax" aria-hidden="true"></div>
+
     <header class="topbar">
       <a class="brand" href="#top" aria-label="TengokuFirst SMP">
         <img class="brand__icon" src="./assets/server-icon.png" alt="" width="32" height="32">
@@ -28,30 +33,78 @@
 
     <main id="top">
       <section class="hero section-anchor" id="hero" data-section-id="hero">
-        <div class="hero__copy">
-          <p class="eyebrow">TengokuFirst SMP</p>
-          <h1>Спокойный вход в сервер без путаницы с установкой</h1>
+        <div class="hero__copy glass-panel">
+          <div class="hero__copy-topline">
+            <p class="eyebrow">TengokuFirst SMP</p>
+            <span class="hero__status">Create • Survival • SMP</span>
+          </div>
+          <h1>Одна страница, чтобы зайти на сервер без лишней путаницы</h1>
           <p class="hero__lead">
-            Здесь лежат все стартовые материалы: сам лаунчер, modpack, пошаговый гайд по Ely.by
-            и контакты, если по дороге что-то сломалось.
+            Тут собраны лаунчер, сборка, гайд по Ely.by и вся базовая информация для старта.
+            Скачал, прошёл шаги, зашёл на сервер и не потерялся в переписках.
           </p>
           <div class="hero__actions">
-            <a class="button button--primary" href="#launcher">Открыть лаунчер</a>
-            <a class="button button--secondary" href="#guide">Открыть гайд</a>
+            <a class="tilt-card tilt-card--warm" href="#launcher">
+              <span class="tilt-card__shine"></span>
+              <img class="tilt-card__icon" src="./assets/elyprism.png" alt="" width="58" height="58">
+              <span class="tilt-card__label">Открыть лаунчер</span>
+              <span class="tilt-card__sub">Скачать ElyPrism, ZIP и `.mrpack`</span>
+            </a>
+            <a class="tilt-card tilt-card--cool" href="#guide">
+              <span class="tilt-card__shine"></span>
+              <img class="tilt-card__icon" src="./assets/neoforged.png" alt="" width="58" height="58">
+              <span class="tilt-card__label">Открыть гайд</span>
+              <span class="tilt-card__sub">Посмотреть порядок входа через Ely.by</span>
+            </a>
           </div>
         </div>
-        <aside class="hero__panel">
-          <p class="hero__panel-label">Что внутри</p>
-          <ul class="hero__list">
-            <li>Скачивание ElyPrism и готового ZIP</li>
-            <li>Отдельный `.mrpack` для модов</li>
-            <li>Пошаговый вход через Ely.by</li>
-            <li>Подсказки на случай типичных ошибок</li>
-          </ul>
-          <div class="server-badge">
-            <span class="server-badge__label">Адрес сервера</span>
-            <span class="server-badge__value">smp.tengokufirst.ru</span>
+
+        <aside class="server-stack glass-panel">
+          <div class="server-stack__header">
+            <p class="server-stack__label">Что внутри</p>
+            <h2 class="server-stack__title minecraft-font">Сервер</h2>
           </div>
+
+          <section class="server-info server-info--addresses">
+            <button class="server-info__head" type="button" data-info-toggle aria-expanded="false">
+              <span class="server-info__name minecraft-font">Адреса</span>
+              <span class="server-info__hint">Сайт, сервер и голосовой чат</span>
+            </button>
+            <div class="server-info__body">
+              <ul class="server-drop__list">
+                <li><span>Сайт</span><strong>www.tengokufirst.ru</strong></li>
+                <li><span>Сервер</span><strong>smp.tengokufirst.ru</strong></li>
+                <li><span>Голосовой чат</span><strong>внутри сборки</strong></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="server-info server-info--online">
+            <button class="server-info__head" type="button" data-info-toggle aria-expanded="false">
+              <span class="server-info__name minecraft-font">Онлайн</span>
+              <span class="server-info__hint">Игроки, которые сейчас на сервере</span>
+            </button>
+            <div class="server-info__body">
+              <div class="online-list">
+                <span class="online-list__status">Пока список можно обновлять вручную</span>
+                <div class="online-list__chips">
+                  <span class="player-chip">Tengoku</span>
+                  <span class="player-chip">Место под ники</span>
+                  <span class="player-chip">Позже подключим реальный онлайн</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="server-info server-info--mods">
+            <button class="server-info__head" type="button" data-info-toggle aria-expanded="false">
+              <span class="server-info__name minecraft-font">Моды</span>
+              <span class="server-info__hint">Полный список со ссылками</span>
+            </button>
+            <div class="server-info__body server-info__body--mods">
+              <div class="mods-list" id="mods-list"></div>
+            </div>
+          </section>
         </aside>
       </section>
 
@@ -60,55 +113,50 @@
           <p class="section__eyebrow">Раздел 01</p>
           <h2>Лаунчер</h2>
           <p>
-            Здесь собраны все варианты старта. Можешь взять официальный ElyPrism, мой ZIP-архив
-            или сразу скачать готовый modpack `Create-SMP.mrpack`.
+            Тут собраны все варианты старта. Можно взять официальный ElyPrism, скачать готовый ZIP
+            или сразу забрать modpack `Create-SMP.mrpack`.
           </p>
         </div>
 
         <div class="card-grid card-grid--downloads">
-          <article class="card card--action">
+          <article class="card glass-panel">
             <div class="card__header">
               <h3>Официальный ElyPrism</h3>
               <span class="pill">Рекомендуется</span>
             </div>
             <p>
-              Если хочешь самый понятный и официальный путь, скачай ElyPrism с сайта разработчика.
+              Самый понятный и безопасный вариант. Если хочешь официальный путь, начинай именно отсюда.
             </p>
             <a class="button button--primary button--full" href="https://elyprism.ru/" target="_blank" rel="noreferrer">
               Скачать с elyprism.ru
             </a>
           </article>
 
-          <article class="card card--action">
+          <article class="card glass-panel">
             <div class="card__header">
-              <h3>Мой ZIP-лаунчер</h3>
+              <h3>ZIP-лаунчер</h3>
               <span class="pill pill--muted">Альтернатива</span>
             </div>
             <p>
-              Если удобнее получить готовый ZIP напрямую, используй этот вариант. Ссылка берётся
-              из конфигурации GitHub Release и может быть заменена без переделки сайта.
+              Готовый архив, если тебе удобнее получить лаунчер напрямую без лишних переходов.
             </p>
             <a class="button button--secondary button--full" id="zip-download-link" href="./assets/ElyPrismLauncher.zip" download>
               Скачать ZIP-лаунчер
             </a>
           </article>
 
-          <article class="card card--action">
+          <article class="card glass-panel">
             <div class="card__header">
               <h3>Modpack `.mrpack`</h3>
               <span class="pill pill--accent">Обязателен</span>
             </div>
             <p>
-              Это сборка модов для сервера. После скачивания её нужно импортировать в лаунчер по гайду ниже.
+              Это сама сборка сервера. После скачивания её нужно импортировать в ElyPrism по гайду ниже.
             </p>
             <a class="button button--secondary button--full" id="mrpack-download-link" href="./assets/Create-SMP.mrpack" download>
               Скачать Create-SMP.mrpack
             </a>
           </article>
-        </div>
-
-        <div class="notice">
-          <strong>Важно:</strong> сначала удобно скачать лаунчер и `.mrpack`, а затем спокойно пройти шаги из гайда.
         </div>
       </section>
 
@@ -117,69 +165,43 @@
           <p class="section__eyebrow">Раздел 02</p>
           <h2>Гайд</h2>
           <p>
-            Пошаговая инструкция для тех, кто хочет просто зайти на сервер без лишних догадок.
+            Пошаговый маршрут для новичка: от регистрации Ely.by до первого входа на сервер.
           </p>
         </div>
 
         <div class="guide-layout">
-          <article class="card guide-card">
+          <article class="card glass-panel guide-card">
             <h3>Шаги запуска</h3>
             <ol class="steps">
-              <li>
-                <strong>Создай аккаунт Ely.by.</strong>
-                Открой <a href="https://ely.by/" target="_blank" rel="noreferrer">ely.by</a>,
-                зарегистрируй аккаунт и сразу запомни логин с паролем.
-              </li>
-              <li>
-                <strong>Скачай лаунчер.</strong>
-                Выбери один из двух вариантов в разделе <a href="#launcher">Лаунчер</a>:
-                официальный ElyPrism или готовый ZIP.
-              </li>
-              <li>
-                <strong>Скачай modpack `Create-SMP.mrpack`.</strong>
-                Этот файл нужен, чтобы в лаунчере появилась правильная сборка для сервера.
-              </li>
-              <li>
-                <strong>Запусти ElyPrism.</strong>
-                Если скачивал ZIP, распакуй архив в удобную папку и открой `elyprismlauncher.exe`.
-              </li>
-              <li>
-                <strong>Добавь аккаунт Ely.by.</strong>
-                В лаунчере открой раздел аккаунтов, выбери вход через Ely.by и авторизуйся под своими данными.
-              </li>
-              <li>
-                <strong>Импортируй `.mrpack`.</strong>
-                В ElyPrism нажми "Добавить экземпляр" и выбери импорт, укажи скачанный `Create-SMP.mrpack`.
-              </li>
-              <li>
-                <strong>Проверь Java и путь установки.</strong>
-                Если лаунчер предложит скачать компоненты или выбрать папку, просто следуй подсказкам по умолчанию.
-              </li>
-              <li>
-                <strong>Запусти сборку и зайди на сервер.</strong>
-                После первого запуска дождись установки всех файлов и подключайся к `smp.tengokufirst.ru`.
-              </li>
+              <li><strong>Создай аккаунт Ely.by.</strong> Открой <a href="https://ely.by/" target="_blank" rel="noreferrer">ely.by</a>, зарегистрируйся и запомни логин с паролем.</li>
+              <li><strong>Скачай лаунчер.</strong> Выбери официальный ElyPrism или ZIP из раздела <a href="#launcher">Лаунчер</a>.</li>
+              <li><strong>Скачай `Create-SMP.mrpack`.</strong> Этот файл нужен, чтобы в лаунчере появилась правильная сборка.</li>
+              <li><strong>Запусти ElyPrism.</strong> Если это ZIP-версия, сначала полностью распакуй архив.</li>
+              <li><strong>Войди через Ely.by.</strong> В разделе аккаунтов выбери авторизацию Ely.by и введи свои данные.</li>
+              <li><strong>Импортируй `.mrpack`.</strong> В ElyPrism нажми &quot;Добавить экземпляр&quot; и выбери импорт, укажи скачанный `Create-SMP.mrpack`.</li>
+              <li><strong>Дождись первой установки.</strong> На первом запуске сборка может ставиться дольше обычного.</li>
+              <li><strong>Заходи на сервер.</strong> Подключайся к `smp.tengokufirst.ru`.</li>
             </ol>
           </article>
 
-          <article class="card guide-card">
+          <article class="card glass-panel guide-card">
             <h3>Если что-то пошло не так</h3>
             <div class="issues">
               <div class="issue">
                 <h4>Не получается войти в Ely.by</h4>
-                <p>Проверь, что используешь именно данные от Ely.by, а не старый логин от другого лаунчера.</p>
+                <p>Проверь, что используешь именно логин и пароль от Ely.by, а не от другого клиента.</p>
               </div>
               <div class="issue">
                 <h4>`.mrpack` не импортируется</h4>
-                <p>Сначала обнови ElyPrism до актуальной версии и попробуй импортировать файл заново через функцию импорта modpack.</p>
+                <p>Обнови ElyPrism до актуальной версии и попробуй импорт заново через меню modpack.</p>
               </div>
               <div class="issue">
-                <h4>Лаунчер не запускается</h4>
-                <p>Если это ZIP-версия, распакуй архив полностью, а не запускай изнутри архива. На Windows также стоит проверить, не блокирует ли запуск защитник.</p>
+                <h4>ZIP-лаунчер не запускается</h4>
+                <p>Не запускай `.exe` прямо из архива. Распакуй всё в отдельную папку.</p>
               </div>
               <div class="issue">
-                <h4>После запуска нет нужной сборки</h4>
-                <p>Повтори импорт `Create-SMP.mrpack` и убедись, что выбираешь именно скачанный файл из этого сайта.</p>
+                <h4>После запуска нет сборки</h4>
+                <p>Повтори импорт `Create-SMP.mrpack` и убедись, что выбираешь именно файл с этого сайта.</p>
               </div>
               <div class="issue">
                 <h4>Всё ещё не получается</h4>
@@ -194,16 +216,19 @@
         <div class="section__intro">
           <p class="section__eyebrow">Раздел 03</p>
           <h2>Правила</h2>
-          <p>Этот раздел уже подготовлен по структуре и будет заполнен отдельно.</p>
+          <p>Короткий список базовых правил, чтобы всем было комфортно играть.</p>
         </div>
 
-        <article class="card placeholder-card">
-          <span class="placeholder-card__badge">Скоро</span>
-          <h3>Полный свод правил сервера появится здесь</h3>
-          <p>
-            Пока раздел оставлен как аккуратная точка расширения. Когда правила будут готовы,
-            сюда можно вставить полный текст без переделки структуры сайта.
-          </p>
+        <article class="card glass-panel rules-card">
+          <ol class="rules-list">
+            <li>Не убивай без реально весомой причины.</li>
+            <li>Не гриффери чужие постройки и территории.</li>
+            <li>Не мешай другим людям играть и спокойно развиваться.</li>
+            <li>Живи подальше от спавна, не застраивай его вплотную.</li>
+            <li>Не оскорбляй людей в чате. Если это явная дружеская шутка, наказания не будет.</li>
+            <li>Старайся избегать мата, но сам по себе мат не запрещён.</li>
+            <li>В целом веди себя в чате дружелюбнее и не превращай общение в токсичку.</li>
+          </ol>
         </article>
       </section>
 
@@ -211,15 +236,14 @@
         <div class="section__intro">
           <p class="section__eyebrow">Раздел 04</p>
           <h2>FAQ</h2>
-          <p>Частые вопросы о проекте будут добавлены отдельным этапом.</p>
+          <p>Этот блок оставим на потом и спокойно заполним отдельным этапом.</p>
         </div>
 
-        <article class="card placeholder-card">
-          <span class="placeholder-card__badge">Скоро</span>
-          <h3>FAQ пока в подготовке</h3>
+        <article class="card glass-panel placeholder-card">
+          <span class="placeholder-card__badge">Позже</span>
+          <h3>FAQ подготовим отдельно</h3>
           <p>
-            Здесь позже появятся короткие ответы про сервер, версии, доступ, особенности сборки
-            и всё остальное, что часто спрашивают новые игроки.
+            Сюда потом добавим короткие ответы про проект, сборку, версию, правила игры и частые вопросы новичков.
           </p>
         </article>
       </section>
@@ -232,28 +256,22 @@
         </div>
 
         <div class="card-grid">
-          <article class="card card--contact">
+          <article class="card glass-panel card--contact">
             <h3>Канал проекта</h3>
             <p>Основные новости и анонсы по серверу.</p>
-            <a class="text-link" href="https://t.me/TengokuFirstSMP" target="_blank" rel="noreferrer">
-              t.me/TengokuFirstSMP
-            </a>
+            <a class="text-link" href="https://t.me/TengokuFirstSMP" target="_blank" rel="noreferrer">t.me/TengokuFirstSMP</a>
           </article>
 
-          <article class="card card--contact">
+          <article class="card glass-panel card--contact">
             <h3>Предложка</h3>
             <p>Если хочешь написать по идее, проблеме или предложению.</p>
-            <a class="text-link" href="https://t.me/tengoku_chan?direct" target="_blank" rel="noreferrer">
-              t.me/tengoku_chan?direct
-            </a>
+            <a class="text-link" href="https://t.me/tengoku_chan?direct" target="_blank" rel="noreferrer">t.me/tengoku_chan?direct</a>
           </article>
 
-          <article class="card card--contact">
+          <article class="card glass-panel card--contact">
             <h3>Личный контакт</h3>
             <p>Можно попробовать написать лично, если вопрос срочный.</p>
-            <a class="text-link" href="https://t.me/TheRealTengoku" target="_blank" rel="noreferrer">
-              t.me/TheRealTengoku
-            </a>
+            <a class="text-link" href="https://t.me/TheRealTengoku" target="_blank" rel="noreferrer">t.me/TheRealTengoku</a>
           </article>
         </div>
       </section>
@@ -264,3 +282,4 @@
   <script src="./assets/app.js"></script>
 </body>
 </html>
+
