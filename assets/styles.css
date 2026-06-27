@@ -368,10 +368,33 @@ main {
   padding: 6px 6px 16px;
 }
 
+.server-stack__status-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.server-stack__status-gif {
+  width: 1.8rem;
+  height: 1.8rem;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex: 0 0 auto;
+}
+
 .server-stack__title {
-  margin: 10px 0 0;
+  margin: 0;
   font-size: 1.8rem;
   color: #f2ede6;
+}
+
+.server-stack__status-line[data-server-state="online"] .server-stack__title {
+  color: #00d66c;
+}
+
+.server-stack__status-line[data-server-state="offline"] .server-stack__title {
+  color: #e5362c;
 }
 
 .server-info {
@@ -489,6 +512,12 @@ main {
   line-height: 1.6;
 }
 
+.online-list__summary {
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
 .online-list__chips {
   display: flex;
   flex-wrap: wrap;
@@ -505,6 +534,11 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 0.9rem;
   font-weight: 700;
+}
+
+.player-chip--muted {
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.05);
 }
 .mods-list {
   display: grid;

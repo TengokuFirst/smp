@@ -240,6 +240,102 @@
     modsList.appendChild(fragment);
   }
 
+  const serverStatusLine = document.querySelector("[data-server-status-line]");
+  const serverStatusGif = document.querySelector("[data-server-status-gif]");
+  const serverStatusTitle = document.querySelector("[data-server-status-title]");
+  const onlineStatusText = document.getElementById("online-status-text");
+  const onlineSummaryText = document.getElementById("online-summary-text");
+  const onlinePlayersList = document.getElementById("online-players-list");
+
+  const renderPlayers = (players) => {
+    if (!onlinePlayersList) {
+      return;
+    }
+
+    onlinePlayersList.innerHTML = "";
+
+    if (!players.length) {
+      const chip = document.createElement("span");
+      chip.className = "player-chip player-chip--muted";
+      chip.textContent = "Сейчас никого нет";
+      onlinePlayersList.appendChild(chip);
+      return;
+    }
+
+    players.forEach((playerName) => {
+      const chip = document.createElement("span");
+      chip.className = "player-chip";
+      chip.textContent = playerName;
+      onlinePlayersList.appendChild(chip);
+    });
+  };
+
+  const setServerState = (state) => {
+    if (serverStatusLine) {
+      serverStatusLine.dataset.serverState = state;
+    }
+
+    if (serverStatusGif) {
+      serverStatusGif.src = state === "online" ? "./assets/online.gif" : "./assets/offline.gif";
+    }
+
+    if (serverStatusTitle) {
+      serverStatusTitle.style.color = state === "online" ? "#00d66c" : "#e5362c";
+    }
+  };
+
+  const updateOnlineStatus = async () => {
+    try {
+      const response = await fetch("https://api.mcstatus.io/v2/status/java/89.248.236.147:27310", {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      const isOnline = Boolean(data.online);
+      const playersOnline = Number(data?.players?.online || 0);
+      const playersMax = Number(data?.players?.max || 50);
+      const players = Array.isArray(data?.players?.list) ? data.players.list : [];
+
+      setServerState(isOnline ? "online" : "offline");
+
+      if (onlineStatusText) {
+        onlineStatusText.textContent = isOnline
+          ? "Сервер в сети, статус обновляется автоматически."
+          : "Сервер сейчас офлайн.";
+      }
+
+      if (onlineSummaryText) {
+        onlineSummaryText.textContent = `${playersOnline} / ${playersMax}`;
+      }
+
+      if (isOnline && playersOnline > 0 && players.length === 0) {
+        renderPlayers(["Игроки на сервере есть, но API не отдал ники"]);
+        return;
+      }
+
+      renderPlayers(players);
+    } catch (error) {
+      setServerState("offline");
+
+      if (onlineStatusText) {
+        onlineStatusText.textContent = "Не удалось получить статус сервера.";
+      }
+
+      if (onlineSummaryText) {
+        onlineSummaryText.textContent = "-- / 50";
+      }
+
+      renderPlayers(["Статус временно недоступен"]);
+    }
+  };
+
+  updateOnlineStatus();
+  window.setInterval(updateOnlineStatus, 60000);
+
   const sectionLinks = Array.from(document.querySelectorAll(".tabs__link"));
   const sections = Array.from(document.querySelectorAll("[data-section-id]")).filter(
     (element) => element.dataset.sectionId !== "hero"
